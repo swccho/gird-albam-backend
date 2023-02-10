@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\MediaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GridController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(
+    ['prefix' => 'grid'],
+    function () {
+        Route::post('/list', [GridController::class, 'list'])->name('Grid.List');
+    });
+
+Route::prefix('media')->group(function () {
+    Route::post('upload', [MediaController::class, 'Upload'])->name('API.MEDIA.UPLOAD');
 });
