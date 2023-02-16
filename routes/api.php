@@ -20,6 +20,7 @@ Route::group(
     ['prefix' => 'grid'],
     function () {
         Route::post('/list', [GridController::class, 'list'])->name('Grid.List');
+        Route::post('/create', [GridController::class, 'create'])->name('Grid.Create');
     });
 
 Route::prefix('media')->group(function () {

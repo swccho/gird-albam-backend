@@ -22,6 +22,7 @@ class GridRepository
 
             $gridModel = new GridModel();
             $gridModel->title = $input['title'];
+            $gridModel->grid_type = $input['grid_type'];
             $gridModel->media_ids = $input['media_ids'];
             $gridModel->save();
 

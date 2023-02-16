@@ -42,7 +42,7 @@ class MediaRepository
             $MediaModel->attrs = serialize($attrs);
             $MediaModel->created_at = Carbon::now();
             $MediaModel->save();
-            return ['status' => 200, 'data' => $MediaModel->toArray(), 'file_name' => $image_file->getClientOriginalName(),  'msg' => 'Data has been added successfully'];
+            return ['status' => 200, 'data' => $MediaModel->toArray(), 'file_name' => $image_file->getClientOriginalName(),  'msg' => 'Photo has been added successfully'];
         } catch (\Exception $e) {
             return ['status' => 500, 'error' => $e->getMessage()];
         }
